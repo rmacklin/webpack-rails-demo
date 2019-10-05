@@ -1,6 +1,6 @@
 # webpack-rails-demo
 
-This repository demonstrates basic use of [webpack-rails](https://github.com/mipearson/webpack-rails) in a Rails 4.2 application.
+This repository demonstrates basic use of [webpack-rails](https://github.com/mipearson/webpack-rails) in a Rails 5 application.
 
 Even though it demonstrates **webpack-rails** coexisting with sprockets, sprockets is not required or used by **webpack-rails**.
 
