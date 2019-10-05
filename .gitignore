@@ -12,6 +12,6 @@
 !/log/.keep
 /tmp
 
-# Added by webpack-rails
+# Ignore node modules and compiled assets
 /node_modules
 /public/webpack

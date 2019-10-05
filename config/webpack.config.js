@@ -3,9 +3,9 @@
 
 var path = require('path');
 var webpack = require('webpack');
-var StatsPlugin = require('stats-webpack-plugin');
+var WebpackAssetsManifest = require('webpack-assets-manifest');
 
-// must match config.webpack.dev_server.port
+// this must match config.external_asset_pipeline.dev_server.port
 var devServerPort = 3808;
 
 // set TARGET=production on the environment to add asset fingerprints
@@ -14,14 +14,14 @@ var production = process.env.TARGET === 'production';
 var config = {
   entry: {
     // Sources are expected to live in $app_root/webpack
-    'application': './webpack/application.js'
+    'main': './webpack/main.js'
   },
 
   output: {
     // Build assets directly in to public/webpack/, let webpack know
     // that all webpacked assets start with webpack/
 
-    // must match config.webpack.output_dir
+    // these must match config.external_asset_pipeline.assets_prefix
     path: path.join(__dirname, '..', 'public', 'webpack'),
     publicPath: '/webpack/',
 
@@ -33,15 +33,8 @@ var config = {
   },
 
   plugins: [
-    // must match config.webpack.manifest_filename
-    new StatsPlugin('manifest.json', {
-      // We only need assetsByChunkName
-      chunkModules: false,
-      source: false,
-      chunks: false,
-      modules: false,
-      assets: true
-    })]
+    new WebpackAssetsManifest()
+  ]
 };
 
 if (production) {
