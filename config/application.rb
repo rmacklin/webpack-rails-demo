@@ -21,7 +21,6 @@ module WebpackRailsDemo
     config.external_asset_pipeline.configure do |c|
       c.fall_back_to_sprockets = true
       c.assets_prefix = '/webpack'
-      c.manifest_filename = 'asset-manifest.json'
     end
   end
 end

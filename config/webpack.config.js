@@ -33,8 +33,7 @@ var config = {
   },
 
   plugins: [
-    // this must match config.external_asset_pipeline.manifest_filename
-    new WebpackAssetsManifest({ output: 'asset-manifest.json' })
+    new WebpackAssetsManifest()
   ]
 };
 
