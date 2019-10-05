@@ -4,6 +4,7 @@
 var path = require('path');
 var webpack = require('webpack');
 var StatsPlugin = require('stats-webpack-plugin');
+var WebpackAssetsManifest = require('webpack-assets-manifest');
 
 // must match config.webpack.dev_server.port
 var devServerPort = 3808;
@@ -41,7 +42,9 @@ var config = {
       chunks: false,
       modules: false,
       assets: true
-    })]
+    }),
+    new WebpackAssetsManifest({ output: 'asset-manifest.json' })
+  ]
 };
 
 if (production) {
