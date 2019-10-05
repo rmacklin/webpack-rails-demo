@@ -3,7 +3,6 @@
 
 var path = require('path');
 var webpack = require('webpack');
-var StatsPlugin = require('stats-webpack-plugin');
 var WebpackAssetsManifest = require('webpack-assets-manifest');
 
 // this must match config.external_asset_pipeline.dev_server.port
@@ -34,14 +33,6 @@ var config = {
   },
 
   plugins: [
-    new StatsPlugin('manifest.json', {
-      // We only need assetsByChunkName
-      chunkModules: false,
-      source: false,
-      chunks: false,
-      modules: false,
-      assets: true
-    }),
     // this must match config.external_asset_pipeline.manifest_filename
     new WebpackAssetsManifest({ output: 'asset-manifest.json' })
   ]
